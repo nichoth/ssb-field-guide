@@ -9,7 +9,10 @@ The database layer is [secure-scuttlebutt](https://github.com/ssbc/secure-scuttl
 
 > A database of unforgeable append-only feeds, optimized for efficient replication for peer to peer protocols
 
-**what is saved in the flumelog? messages from everyone you are following? Do you have one log or many logs, one for each public key?**
+The database is implemented with [flumedb](https://github.com/flumedb/flumedb). Your data is probably stored in a file at `~/.ssb/flume/log.offset`. This is an append only log that has your messages and probably your friends and foafs messages as well.
+
+Also in `~/.ssb/flume` you will see some JSON files. These are materialized views of the database log (flume views). `friends.json` is a view of people within two hops in your foaf graph.
+
 
 ## sbot
 
