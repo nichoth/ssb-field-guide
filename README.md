@@ -20,6 +20,7 @@ Also in `~/.ssb/flume` you will see some JSON files. These are materialized view
 
 > The gossip and replication server for Secure Scuttlebutt - a distributed social network
 
+[Gossip](gossip.md)
 
 ## client
 
@@ -67,6 +68,8 @@ The client depends on an sbot using the same `caps.shs` as the client. You can p
 
 
 See also [ssb-minimal](https://github.com/av8ta/ssb-minimal)
+
+SHS stands for [secret handshake](https://github.com/auditdrivencrypto/secret-handshake). There is a [whitepaper](http://dominictarr.github.io/secret-handshake-paper/shs.pdf) about it too.
 
 
 ## plugins 
