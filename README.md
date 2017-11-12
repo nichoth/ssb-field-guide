@@ -24,7 +24,7 @@ Also in `~/.ssb/flume` you will see some JSON files. These are materialized view
 
 ## client
 
-A client is an application that uses sbot with various plugins as a backend. 
+A client is an application that uses sbot with various plugins as a backend. Each peer on the network corresponds to one database and one sbot instance, and the same sbot may be shared by several clients (see [ssb-party](https://www.npmjs.com/package/ssb-party). All of these processes are probably running on one machine.
 
 [ssb-client](https://github.com/ssbc/ssb-client) can be used to connect to an sbot running in a separate process. There are some important configuration bits that your client needs, `caps.shs` and `caps.sign`. These determine which network your client connects to. By setting these you can do tests and development on a separate network.
 
