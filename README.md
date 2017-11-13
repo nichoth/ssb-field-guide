@@ -43,6 +43,7 @@ If you only set the shs key, messages could leak out of your network if someone 
 shs and sign should be base64 encoded random strings
 
 ```js
+var crypto = require('crypto')
 crypto.randomBytes(32).toString('base64')
 ```
 
