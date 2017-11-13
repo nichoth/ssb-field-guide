@@ -13,6 +13,10 @@ The database is implemented with [flumedb](https://github.com/flumedb/flumedb). 
 
 Also in `~/.ssb/flume` you will see some JSON files. These are materialized views of the database log (flume views). `friends.json` is a view of people within two hops in your foaf graph.
 
+### feeds
+
+A feed is a signed append-only sequence of messages. Each identity has exactly one feed. Your ssb log contains many feeds (one for each identity that you are gossiping), all mixed together. Each message in a feed has a field `sequence` that is an increasing number. That way you can tell peers what the latest message is that you have so that you can request or send newer messages.
+
 
 ## sbot
 
