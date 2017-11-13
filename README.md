@@ -56,11 +56,11 @@ var path = require('path')
 var home = require('os-homedir')
 var getKeys = require('ssb-keys').loadOrCreateSync
 
-var PATH = path.join(home(), '.ssb')
-var keys = getKeys(path.join(PATH, 'secret'))
+var SSB_PATH = path.join(home(), '.ssb')
+var keys = getKeys(path.join(SSB_PATH, 'secret'))
 
 Client(keys, {
-    path: '/Users/me/.ssb',
+    path: SSB_PATH,
     caps: {
         shs: 'abc'
     }
