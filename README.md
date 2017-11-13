@@ -16,11 +16,11 @@ Also in `~/.ssb/flume` you will see some JSON files. These are materialized view
 
 ## sbot
 
-[scuttlebot](https://github.com/ssbc/scuttlebot) provides network services on top of ssb (the database).
+[scuttlebot](https://github.com/ssbc/scuttlebot) (or sbot) provides network services on top of secure-scuttlebutt (the database).
 
 > The gossip and replication server for Secure Scuttlebutt - a distributed social network
 
-[Gossip](gossip.md)
+Read more about [how Gossip works](gossip.md)
 
 ## client
 
