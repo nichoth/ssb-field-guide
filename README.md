@@ -15,7 +15,7 @@ Also in `~/.ssb/flume` you will see some JSON files. These are materialized view
 
 ### feeds
 
-A feed is a signed append-only sequence of messages. Each identity has exactly one feed. Your ssb log contains many feeds (one for each identity that you are gossiping), all mixed together. Each message in a feed has a field `sequence` that is an increasing number. That way you can tell peers what the latest message is that you have so that you can request or send newer messages.
+A feed is a signed append-only sequence of messages. Each identity has exactly one feed. Your ssb log contains many feeds (one for each identity that you are gossiping), all mixed together. Each message in a feed has a field `sequence` that is an increasing number. That way you can tell peers the latest sequence that you have, and then request or send newer messages.
 
 
 ## sbot
@@ -86,7 +86,7 @@ Plugins are a separate process that communicate with an sbot via rpc. A plugin w
 
 An example is [ssb-contacts](https://github.com/ssbc/ssb-contacts). This uses flumeview-reduce to persist it's state, but you could use any persistence.
 
-Plugins have an interface used by [depject](https://github.com/depject/depject). For plugin authors this means you need a few fields in your module. `exports.manifest` is familiar if you have used [muxrpc](https://github.com/ssbc/muxrpc). The manifest is used to tell remote clients what functions your service is exposing via rpc.
+Plugins have an interface used by [secret-stack](https://github.com/ssbc/secret-stack). For plugin authors this means you need a few fields in your module. `exports.manifest` is familiar if you have used [muxrpc](https://github.com/ssbc/muxrpc). The manifest is used to tell remote clients what functions your service is exposing via rpc.
 
 ```js
 exports.name = 'contacts'
