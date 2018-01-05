@@ -24,6 +24,8 @@ A feed is a signed append-only sequence of messages. Each identity has exactly o
 
 > The gossip and replication server for Secure Scuttlebutt - a distributed social network
 
+See also:
+
 * [Epidemic Broadcast Trees (explained like i'm five)](gossip.md)
 
 
