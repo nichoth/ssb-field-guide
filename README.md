@@ -85,7 +85,7 @@ See also [ssb-minimal](https://github.com/av8ta/ssb-minimal)
 
 ## plugins 
 
-Plugins are a separate process that communicate with an sbot via rpc. A plugin will typically read data from the ssb log, then create a view of that data that is saved somewhere, so it doesn't need to be recalculated from the beginning. 
+Plugins expose methods via rpc to interact with an sbot. A plugin will typically read data from the ssb log, then create a view of that data that is saved somewhere, so it doesn't need to be recalculated from the beginning. 
 
 An example is [ssb-contacts](https://github.com/ssbc/ssb-contacts). This uses flumeview-reduce to persist it's state, but you could use any persistence.
 
