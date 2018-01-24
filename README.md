@@ -2,6 +2,8 @@
 
 A guide to developing with ssb
 
+Further reading:
+* [Scuttlebutt Protocol Guide](https://ssbc.github.io/scuttlebutt-protocol-guide/)
 
 ## ssb
 
