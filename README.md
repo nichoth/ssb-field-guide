@@ -37,7 +37,7 @@ A client is an application that uses sbot with various plugins as a backend. Eac
 
 ### ssb-client
 
-[ssb-client](https://github.com/ssbc/ssb-client) can be used to connect to an sbot running in a separate process. There are some important configuration bits that your client needs, `caps.shs` and `caps.sign`. These determine which network your client connects to. By setting these you can do tests and development on a separate network. SHS stands for [secret handshake](https://github.com/auditdrivencrypto/secret-handshake). There is a [whitepaper](http://dominictarr.github.io/secret-handshake-paper/shs.pdf) about it too.
+[ssb-client](https://github.com/ssbc/ssb-client) can be used to connect to an sbot running in a separate process. There are some important configuration bits that your application needs, `caps.shs` and `caps.sign`. Your client needs `shs`, and sbot needs `sign`. These determine which network your app connects to. By setting these you can do tests and development on a separate network. SHS stands for [secret handshake](https://github.com/auditdrivencrypto/secret-handshake). There is a [whitepaper](http://dominictarr.github.io/secret-handshake-paper/shs.pdf) about it too.
 
 Setting `caps.shs` makes gossip connections not occur with peers that have a different shs key.
 
@@ -45,15 +45,11 @@ Setting `caps.sign` makes messages to be considered invalid that were created wi
 
 If you only set the shs key, messages could leak out of your network if someone in the network changes their shs key, or adds messages manually. Setting the sign key ensures that the messages will not be able to be published (or validated) on the main ssb network, only on a network where that same sign key is used.
 
-shs and sign should be base64 encoded random strings
-
+`shs` and `sign` should be base64 encoded random strings
 ```js
 var crypto = require('crypto')
 crypto.randomBytes(32).toString('base64')
 ```
-
-**@TODO does the client need `caps.sign` or only the sbot? I don't see `sign` used in the ssb-client code**
-
 
 ```js
 var Client = require('ssb-client')
@@ -70,7 +66,7 @@ Client(keys, {
         shs: 'abc'
     }
 }, (err, sbot, config) => {
-    // now you have an sbot, which is a separate process with rpc methods
+    // `sbot` here is an rpc client for a local sbot server 
 })
 ```
 
@@ -85,7 +81,7 @@ See also [ssb-minimal](https://github.com/av8ta/ssb-minimal)
 
 
 
-## plugins 
+## sbot plugins 
 
 Plugins expose methods via rpc to interact with an sbot. A plugin will typically read data from the ssb log, then create a view of that data that is saved somewhere, so it doesn't need to be recalculated from the beginning. 
 
