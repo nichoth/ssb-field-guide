@@ -1,6 +1,6 @@
 # ssb survival guide
 
-A guide to developing with ssb
+A field guide to developing with ssb
 
 Further reading:
 * [Scuttlebutt Protocol Guide](https://ssbc.github.io/scuttlebutt-protocol-guide/)
