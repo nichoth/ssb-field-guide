@@ -1,4 +1,4 @@
-# ssb survival guide
+# ssb field guide
 
 A field guide to developing with ssb
 
