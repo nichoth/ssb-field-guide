@@ -1,9 +1,11 @@
 # ssb field guide
-
 A field guide to developing with ssb
 
 Further reading:
 * [Scuttlebutt Protocol Guide](https://ssbc.github.io/scuttlebutt-protocol-guide/)
+* [gossip](https://github.com/nichoth/ssb-field-guide/blob/master/gossip.md)
+
+
 
 ## ssb
 

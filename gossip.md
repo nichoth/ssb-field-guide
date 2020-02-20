@@ -3,7 +3,6 @@
 [This was written by dominic](https://viewer.scuttlebot.io/%25dRIUnLTQ4t8fBVwcPlH%2FCGbyCd0e1Da7wjCsc7PQWpg%3D.sha256)
 
 ## Epidemic Broadcast Trees (explain i like i'm 5)
-
 I want to broadcast a message to my friends around the world and I have a couple of requirements
 
 * make sure everyone definitely gets it
@@ -14,15 +13,12 @@ I want to broadcast a message to my friends around the world and I have a couple
 How might I approach this?
 
 ## send it to everyone
-
 the simplest way would be to make a connection to each friend and send it to them directly. If I have 100 friends, that is 100 messages - that is actually good! but the problem is if everyone wants to distribute messages this way everyone needs 100 connections! to connect everyone to everyone means thousands of connections! This is a lot of work for each computer.
 
 ## send it to a few people who send it on
-
 lets say, everyone has just 5 connections to some other random friends, so you send a message to 5 people, they each send it to another 5 (thats 1+25 now) who then send it to another 5 (that is 1+25+125) now everyone has the message and some people have probarly received (since 151 messages went to 100 people) that isn't efficient. but it was less work for my computer! I only needed to send it to 5 people! I'm okay with that!
 
 ## send it to few people and send it on
-
 okay so lets try the above, can we avoid sending it to anyone _again_? We could do that if we had a thing called a "spanning tree" a spanning tree is a network that connects everything but doesn't have any extra connections. That means there is no loops - there is always a shortest path between any two friends (that may go through other closer friends).
 
 If you think of a ordinary tree it's like this - because all the branches come off the trunk, and then the leaves come off those branches. If you where an ant and wanted to travel from one leaf to another, you'd start walking towards the trunk, then go onto the branch the other leaf came off etc.
@@ -30,13 +26,11 @@ If you think of a ordinary tree it's like this - because all the branches come o
 An ordinary tree grows in this shape, so it's easy to see what the paths are, but the problem we have is all the leaves are in a jumble and we don't actually know which ones are close to each other!
 
 ## centrally organize into a tree
-
 if we had some sorts of top down view of the network, we could look and see which people where closest to each other, and tell them to connect. The people in far flung places would connect to people in more populous places who would connect to each other and messages would travel along those lines.
 
 But this has a big important job that someone has to do, and who is gonna pay them to do it? We'd rather have a system where everyone can just do their thing without any one having special responsibility (because that isn't fun)
 
 ## decentrally organize into a tree
-
 what if there was a way that people could just figure out on their own who is the closest? well, actually there is! When you send someone a message, you can measure how long it takes them to send a message back! this is equivalent to how close you are together! So, lets say we connect to random people like in the 2nd method - but then if we receive another message that we already know, we deactivate that connection. (since if we already know that message, we must have a faster path to the source along another path)
 
 So, the first time we build the network, it will have lots of extra connections, but the ones we don't need will get switched off.
