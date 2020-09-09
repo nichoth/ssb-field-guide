@@ -113,9 +113,9 @@ https://github.com/ssbc/ssb-invite/blob/master/index.js#L244
 
 The addresses of peers are  stored in `~/.ssb/gossip.json`.
 
-[The line that writes the address](https://github.com/ssbc/ssb-invite/blob/master/index.js#L263)
+[The line in ssb-invite that writes the address](https://github.com/ssbc/ssb-invite/blob/master/index.js#L263)
 
-[The part in gossip that writes the file](https://github.com/ssbc/ssb-gossip/blob/04b17c781b983980b318d9a0701060d0f831f7a7/index.js#L420)
+[The part in ssb-gossip that writes the file](https://github.com/ssbc/ssb-gossip/blob/04b17c781b983980b318d9a0701060d0f831f7a7/index.js#L420)
 
 
 see @cel's [msg in ssb](https://viewer.scuttlebot.io/%250KAk8CvE7hNeV4GAFyzYdW8Qy%2Bb47tH%2F5O3RdH4znu0%3D.sha256)
