@@ -103,25 +103,20 @@ exports.init = function (ssb, config) { /* ... */ }
 
 
 ## replication
-
 https://github.com/ssbc/ssb-invite/blob/master/index.js#L195
-
 The remote server info is embedded in the invite code.
 
-```
-      Server (pub)
-         ^
-         | \ 
-        /   \
-      /      \
-     /        v
-publish      download msg
-a msg
-```
-
 Is the server addr stored in the DB? Where? 
-
 https://github.com/ssbc/ssb-invite/blob/master/index.js#L244
+
+--------------------------------
+
+The addresses of peers are  stored in `~/.ssb/gossip.json`.  https://github.com/ssbc/ssb-gossip/blob/04b17c781b983980b318d9a0701060d0f831f7a7/index.js#L420 
+
+see @cel's [msg in ssbsee msg in ssb](https://viewer.scuttlebot.io/%250KAk8CvE7hNeV4GAFyzYdW8Qy%2Bb47tH%2F5O3RdH4znu0%3D.sha256)
+
+
+
 
 
 
