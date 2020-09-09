@@ -102,5 +102,29 @@ exports.init = function (ssb, config) { /* ... */ }
 ```
 
 
+## replication
+
+https://github.com/ssbc/ssb-invite/blob/master/index.js#L195
+
+The remote server info is embedded in the invite code.
+
+```
+      Server (pub)
+         ^
+         | \ 
+        /   \
+      /      \
+     /        v
+publish      download msg
+a msg
+```
+
+Is the server addr stored in the DB? Where? 
+
+https://github.com/ssbc/ssb-invite/blob/master/index.js#L244
+
+
+
+
 
 
