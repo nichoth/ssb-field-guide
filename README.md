@@ -111,6 +111,7 @@ https://github.com/ssbc/ssb-invite/blob/master/index.js#L244
 
 --------------------------------
 
+## gossip
 The addresses of peers are  stored in `~/.ssb/gossip.json`.
 
 [The line in ssb-invite that writes the address](https://github.com/ssbc/ssb-invite/blob/master/index.js#L263)
@@ -119,6 +120,74 @@ The addresses of peers are  stored in `~/.ssb/gossip.json`.
 
 
 see @cel's [msg in ssb](https://viewer.scuttlebot.io/%250KAk8CvE7hNeV4GAFyzYdW8Qy%2Bb47tH%2F5O3RdH4znu0%3D.sha256)
+
+---------------------------------------
+
+## make a plugin
+Need to pass an object
+```js
+var sbot = Sbot.use(myPlugin)(config)
+console.log('**sbot aaaaa**', sbot.aaaaa)
+
+var myPlugin = {
+    name: 'aaaaa',
+    version:  0,
+    manifest: {
+    },
+    init: init
+}
+
+function init (sbot) {
+    return { foo: 'foo' }
+}
+```
+
+## make a databse view
+Here we create a materialized database view (a flumeView)
+
+```js
+var codec = require('flumecodec')
+var createReduce = require('flumeview-reduce/inject')
+// this way our view state is persisted to disk
+var Store = require('flumeview-reduce/store/fs')
+
+var myPlugin = {
+    name: 'aaaaa',
+    version:  0,
+    manifest: {
+    },
+    init: init
+}
+
+var sbot = Sbot.use(myPlugin)(config)
+console.log('**sbot aaaaa**', sbot.aaaaa)
+
+function init (sbot) {
+    function reducer (acc, val) {
+        acc.foo = acc.foo + 1
+        return acc
+    }
+    function mapper (msg) {
+        return msg
+    }
+
+    // need to use this API if we want to store data
+    var Reduce = createReduce(Store)
+
+    var initState = { foo: 0 }
+
+    // view state is saved at ~/app-name/ok.json
+    // b/c that's what we named it in `_flumeUse` here
+    // the path is based on the path to the flume log
+    // https://github.com/flumedb/flumeview-reduce/blob/master/inject.js#L90
+    var view = sbot._flumeUse('ok',
+        Reduce(1, reducer, mapper, codec.json, initState))
+
+    // the thing returned by flumeview-reduce is at sbot.aaaaa b/c we
+    // return it from here
+    return view
+}
+```
 
 
 
