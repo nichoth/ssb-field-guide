@@ -118,7 +118,8 @@ see @cel's [msg in ssb](https://viewer.scuttlebot.io/%250KAk8CvE7hNeV4GAFyzYdW8Q
 ---------------------------------------
 
 ## make a plugin
-Need to pass an object
+Need to pass an object with a certain API that gets called by `sbot.use`
+
 ```js
 var sbot = Sbot.use(myPlugin)(config)
 console.log('**sbot aaaaa**', sbot.aaaaa)
