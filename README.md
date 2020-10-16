@@ -179,8 +179,7 @@ function init (sbot) {
     var view = sbot._flumeUse('ok',
         Reduce(1, reducer, mapper, codec.json, initState))
 
-    // the thing returned by flumeview-reduce is at sbot.aaaaa b/c we
-    // return it from here
+    // the thing return from here is at `sbot.aaaaa`
     return view
 }
 ```
