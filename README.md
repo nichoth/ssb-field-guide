@@ -134,6 +134,7 @@ console.log('**sbot aaaaa**', sbot.aaaaa)
 // logs the return value of `init`
 
 function init (sbot) {
+    // this return value is accessible at `sbot.aaaaa`
     return { foo: 'foo' }
 }
 ```
