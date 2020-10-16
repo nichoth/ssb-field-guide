@@ -106,12 +106,6 @@ exports.init = function (ssb, config) { /* ... */ }
 https://github.com/ssbc/ssb-invite/blob/master/index.js#L195
 The remote server info is embedded in the invite code.
 
-Is the server addr stored in the DB? Where? 
-https://github.com/ssbc/ssb-invite/blob/master/index.js#L244
-
---------------------------------
-
-## gossip
 The addresses of peers are  stored in `~/.ssb/gossip.json`.
 
 [The line in ssb-invite that writes the address](https://github.com/ssbc/ssb-invite/blob/master/index.js#L263)
