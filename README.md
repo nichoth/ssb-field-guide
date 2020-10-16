@@ -121,9 +121,6 @@ see @cel's [msg in ssb](https://viewer.scuttlebot.io/%250KAk8CvE7hNeV4GAFyzYdW8Q
 Need to pass an object with a certain API that gets called by `sbot.use`
 
 ```js
-var sbot = Sbot.use(myPlugin)(config)
-console.log('**sbot aaaaa**', sbot.aaaaa)
-
 var myPlugin = {
     name: 'aaaaa',
     version:  0,
@@ -131,6 +128,10 @@ var myPlugin = {
     },
     init: init
 }
+
+var sbot = Sbot.use(myPlugin)(config)
+console.log('**sbot aaaaa**', sbot.aaaaa)
+// logs the return value of `init`
 
 function init (sbot) {
     return { foo: 'foo' }
