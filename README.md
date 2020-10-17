@@ -142,6 +142,15 @@ function init (sbot) {
 ## make a databse view
 Here we create a materialized database view (a flumeView)
 
+* [flumeDB](https://github.com/flumedb/flumedb)
+* [ssb-links](https://github.com/ssbc/ssb-links/blob/master/index.js)
+* [flumeview-reduce](https://github.com/flumedb/flumeview-reduce)
+* [flumeUse](https://github.com/ssbc/ssb-db#db_flumeuse-view)
+* [flumeview-links](https://github.com/flumedb/flumeview-links)
+-------------------
+* [flumeview-hashtable](https://github.com/flumedb/flumeview-hashtable)
+-----------------------------
+
 ```js
 var codec = require('flumecodec')
 var createReduce = require('flumeview-reduce/inject')
@@ -164,7 +173,7 @@ sbot.publish({
     text: 'Hello, world!'
 }, function (err, msg) {
     // the API we returned from `init`
-    // here the api return by flumeview-reduce 
+    // which here is the api return by flumeview-reduce 
     sbot.aaaaa.get(function (err, data) {
         console.log('**get**', err, msg)
     })
@@ -179,10 +188,10 @@ function init (sbot) {
         return msg
     }
 
+    var initState = { foo: 0 }
+
     // need to use this API if we want to store data
     var Reduce = createReduce(Store)
-
-    var initState = { foo: 0 }
 
     // view state is saved at ~/app-name/ok.json
     // b/c that's what we named it in `_flumeUse` here
