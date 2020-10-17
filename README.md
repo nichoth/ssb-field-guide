@@ -159,6 +159,17 @@ var myPlugin = {
 var sbot = Sbot.use(myPlugin)(config)
 console.log('**sbot aaaaa**', sbot.aaaaa)
 
+sbot.publish({
+    type: 'post',
+    text: 'Hello, world!'
+}, function (err, msg) {
+    // the API we returned from `init`
+    // here the api return by flumeview-reduce 
+    sbot.aaaaa.get(function (err, data) {
+        console.log('**get**', err, msg)
+    })
+})
+
 function init (sbot) {
     function reducer (acc, val) {
         acc.foo = acc.foo + 1
