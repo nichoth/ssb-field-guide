@@ -205,6 +205,14 @@ function init (sbot) {
 }
 ```
 
+## ssb db 2, JITDB
+`ssb-db2` is just a plugin like any other. I’m already using it in Manyverse.
+
+These projects are primarily for better performance. Secondary goal is to reset some of the legacy choices that wear us down. Third goal is to have a nicer API for querying.
+
+### JITDB
+JITDB is just a lower level component. The name is called JIT because the indexes are created just-in-time, automatically inferred from the query. These are only bitvector indexes and prefix indexes.
+
 
 
 
