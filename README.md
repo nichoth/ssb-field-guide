@@ -223,7 +223,7 @@ See [ssb-browser-core](https://github.com/arj03/ssb-browser-core)
 
 The private key is saved in localstorage.
 
-When you run out of space, new writes wil fail.
+When you run out of space, new writes will fail.
 
 [this article](https://web.dev/storage-for-the-web/) states that chrome can use up to 80% of available disk
 
