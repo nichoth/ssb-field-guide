@@ -205,7 +205,7 @@ function init (sbot) {
 }
 ```
 
-## ssb db 2, JITDB
+## ssb-db-2, JITDB
 `ssb-db2` is just a plugin like any other. I’m already using it in Manyverse.
 
 These projects are primarily for better performance. Secondary goal is to reset some of the legacy choices that wear us down. Third goal is to have a nicer API for querying.
@@ -213,8 +213,21 @@ These projects are primarily for better performance. Secondary goal is to reset 
 ### JITDB
 JITDB is just a lower level component. The name is called JIT because the indexes are created just-in-time, automatically inferred from the query. These are only bitvector indexes and prefix indexes.
 
+----------------------------------------
 
+## ssb browser
+See [ssb-browser-core](https://github.com/arj03/ssb-browser-core)
 
+### storage
+`ssb-browser-core` uses partial replication so the storage requirement is not as big as a normal client.
+
+All of this is built on top of async-append-only-log, this in turn uses polyraf, which is a wrapper around [random-access-storage](https://github.com/random-access-storage/) family of libraries so that it works both in the browser and in node with the same api. In the browser it will use random-access-web which for firefox will use indexeddb but for chrome will use a special faster backend.
+
+The private key is saved in localstorage.
+
+When you run out of space, new writes wil fail.
+
+blobs are different than the log, as it is in a normal ssb client as well. There is a small module that uses the same blobs protocol but stores the data using the same `polyraf` library. The core library has a parameter where you can say that you only want to download and store blobs under a certain size. It will then stream larger blobs so they don’t take up space. Another approach would be use something like the [blobs purge](https://github.com/arj03/ssb-browser-demo/issues/8) library.
 
 
 
