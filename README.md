@@ -82,7 +82,6 @@ The client depends on an sbot using the same `caps.shs` as the client. You can p
 See also [ssb-minimal](https://github.com/av8ta/ssb-minimal)
 
 
-
 ## sbot plugins 
 
 Plugins expose methods via rpc to interact with an sbot. A plugin will typically read data from the ssb log, then create a view of that data that is saved somewhere, so it doesn't need to be recalculated from the beginning. 
@@ -231,6 +230,9 @@ All of this is built on top of async-append-only-log, this in turn uses polyraf,
 
 #### blobs storage
 blobs are different than the log, as it is in a normal ssb client as well. There is a [small module](https://github.com/arj03/ssb-browser-core/blob/master/simple-blobs.js) that uses the same blobs protocol but stores the data using the `polyraf` library. The core library has a parameter where you can say that you only want to download and store blobs under a certain size. It will then stream larger blobs so they don’t take up space. Another approach would be use something like the [blobs purge](https://github.com/arj03/ssb-browser-demo/issues/8) library.
+
+-------------------------------------------------
+
 
 
 
