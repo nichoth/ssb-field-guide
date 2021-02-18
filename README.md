@@ -5,10 +5,7 @@ Further reading:
 * [Scuttlebutt Protocol Guide](https://ssbc.github.io/scuttlebutt-protocol-guide/)
 * [gossip](https://github.com/nichoth/ssb-field-guide/blob/master/gossip.md)
 
-
-
 ## ssb
-
 The database layer is [secure-scuttlebutt](https://github.com/ssbc/secure-scuttlebutt). 
 
 > A database of unforgeable append-only feeds, optimized for efficient replication for peer to peer protocols
@@ -73,7 +70,6 @@ Client(keys, {
 ```
 
 ### start an sbot
-
 The client depends on an sbot using the same `caps.shs` as the client. You can pass it in as an argument
 
     $ sbot server -- --caps.shs="abc" --caps.sign="123"
@@ -83,7 +79,6 @@ See also [ssb-minimal](https://github.com/av8ta/ssb-minimal)
 
 
 ## sbot plugins 
-
 Plugins expose methods via rpc to interact with an sbot. A plugin will typically read data from the ssb log, then create a view of that data that is saved somewhere, so it doesn't need to be recalculated from the beginning. 
 
 An example is [ssb-contacts](https://github.com/ssbc/ssb-contacts). This uses flumeview-reduce to persist it's state, but you could use any persistence.
@@ -233,7 +228,10 @@ blobs are different than the log, as it is in a normal ssb client as well. There
 
 -------------------------------------------------
 
+## secret handshake
+The handshake is mostly about authentication / verification; can the public keys of both peers be verified and are they using the same network key? If the answer to both of those questions is yes, then a **shared secret** is created - which I think of as a proof of verification or proof of identity. The shared secret can then be used to encrypt and decrypt further communications.
 
+you can use the same stream for the handshake and the box stream. The handshake will return a set of keys to each peer and those keys are used to create a pair of boxstreams (one for reading and one for writing).
 
 
 
