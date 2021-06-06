@@ -70,7 +70,7 @@ Client(keys, {
 ```
 
 ### start an sbot
-The client depends on an sbot using the same `caps.shs` as the client. You can pass it in as an argument
+The client depends on an sbot using the same `caps.shs` as the server. You can pass it in as an argument
 
     $ sbot server -- --caps.shs="abc" --caps.sign="123"
 
@@ -244,4 +244,16 @@ The way I have been testing this in browser demo is to have 2 browsers, could be
 > a room is basically a server that multiple peers can connect to. The room will faciliate e2e encrypted tunnels between the peers. This means that it won't have any trouble with hole punching and all of that stuff. This is an address to a room that works in the browser: https://github.com/arj03/ssb-browser-demo/blob/e935636feaddd6d13868a104a2ea0fdb3c176bff/defaultprefs.json#L12
 
 So you basically connect both clients to that using something like: https://github.com/arj03/ssb-browser-demo/blob/master/ui/connections.js
+
+### how to get a list of connections
+
+Use `SSB.net.conn`
+
+[a recipe](https://github.com/staltz/ssb-conn#recipes)
+
+[in the wild](https://github.com/nichoth/sphotos/blob/b5a9ff8cf6c5393d91a42ad2a1fbcc20ab2bebfb/src/index.js#L61)
+
+
+
+
 
