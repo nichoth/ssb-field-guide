@@ -253,7 +253,7 @@ Use `SSB.net.conn`
 
 [in the wild](https://github.com/nichoth/sphotos/blob/b5a9ff8cf6c5393d91a42ad2a1fbcc20ab2bebfb/src/index.js#L61)
 
+--------------------
 
-
-
-
+*credits*
+A lot of these notes were provided by [cel](https://github.com/clehner)
