@@ -256,4 +256,5 @@ Use `SSB.net.conn`
 --------------------
 
 *credits*
-A lot of these notes were provided by [cel](https://github.com/clehner)
+A lot of these notes were provided by [@cel](https://github.com/clehner)
+
